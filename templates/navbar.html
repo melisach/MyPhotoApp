@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}My Photo ! {% endblock %}
+{% block body_content %}
+
+    <nav>
+         <ul class="nav justify-content-start"style="background-color: #e3f2fd;"></br>
+             <li class="nav-item ">
+                 <a href="{% url 'user_gallerie' %}" class="btn btn-outline-success m-3" > {{ request.user.username }} </a>
+             </li>
+             <li class="nav-item ">
+                  <a href="{% url 'gallerie' %}" class="btn btn-outline-info m-3"> Gallerie </a>
+             </li>
+             <li class="nav-item ">
+                  <a href="{% url 'add_photo' %}" class="btn btn-outline-info m-3" > Ajouter une photo </a>
+              </li>
+             <li class="nav-item " style="flex-grow: 3;">
+                  <a href="{% url 'add_categorie' %}" class="btn btn-outline-info m-3"> Ajouter une categories</a>
+             </li>
+             <li class="nav-item ">
+                  <a href="{% url 'logout'%}" class="btn btn-outline-info m-3" >Logout</a>
+             </li>
+        </ul>
+    </nav>
+    {% block body_content_nav %}
+
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_content %}
+
+    <div class=" mt-5">
+        <div class=" card container" style="width: 40rem; ">
+            <div class="row justify-content-center container text-center">
+                <div class="col-md-5">
+                     <h1>Login</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-outline-info my-3" type="submit">Login!</button>
+                    </form>
+                     <a href="{% url 'index' %}" class="btn btn-outline-info my-3" >Retour a la page d'accueille </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

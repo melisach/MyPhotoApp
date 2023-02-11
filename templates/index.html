@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+{% block title %}My Photo ! {% endblock %}
+
+ {% block body_content %}
+
+     <div class="text-center p-5">
+         <p class =" " style="color:#00aaaa;font-size:60px">Bienvenu sur My Photo ! </p>
+         <a href="{% url 'login' %}" class="btn btn-outline-info m-3" >Login</a>
+         <a href="{% url 'register_form' %}" class="btn btn-outline-info my-3" >Créer nouveau compte</a>
+     </div>
+
+
+ {% endblock %}

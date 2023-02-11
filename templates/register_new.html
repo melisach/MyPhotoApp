@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} ! {%  endblock %}
+{% block body_content %}
+
+
+    <div class="m-5">
+        <div class="card container" style="width: 50rem; ">
+            <div class="row justify-content-center container text-center">
+                <div class="col-md-4">
+                     <h1> S’inscrire </h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                            <div>{{ form.username.label }}</div>
+                            <div>{{ form.username }}</div>
+                            <div>{{ form.email.label }}</div>
+                            <div>{{ form.email }}</div>
+                            <div>{{ form.password.label }}</div>
+                            <div>{{ form.password }}</div>
+                            <div>{{ form.password2.label }}</div>
+                            <div>{{ form.password2 }}</div>
+                        <button class="btn btn-outline-info my-3"  type="submit">S’inscrire!</button>
+                    </form>
+                   <a href="{% url 'index' %}" class="btn btn-outline-info my-3" >Retour a la page d'accueille </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,49 @@
+
+{% extends 'navbar.html' %}
+{% block title %}My Photo !{% endblock %}
+
+  {% block body_content_nav %}
+
+        <h2 class="pl-3 " style="color: #00aaaa"><b>Ma gallerie</b></h2>
+        <div class="m-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card" style="width: 15rem ; background-color:lightblue">
+                            <div class="card-header text-center" style="color: #0f6674">
+                                Categories
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-center " >
+                                    <a href= "{% url 'gallerie' %}">All </a>
+                                </li>
+                                {% for object in object_list %}
+                                    <li class="list-group-item text-center"><a href= "{% url 'gallerie' %}?categorie={{ object }}">{{ object }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            {% for photo in photos %}
+                                <div class="col-md-4">
+                                    <div class="card my-2">
+                                        <img class="image-thumbail"
+                                             src="{{ photo.image.url}}"
+                                             alt="Card image cap">
+                                        <div class="card-body">
+                                            <smal style="color: #0f6674"> Categorie : {{ photo.categorie.categorie}}</smal>
+                                        </div>
+                                        <a href="{% url 'photo' photo.id %}" class="btn btn-outline-info">Voir la photo    </a>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <h3>No photos...</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ {% endblock %}

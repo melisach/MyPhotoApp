@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_content %}
+
+        <div class=" mt-5">
+        <div class=" card container" style="width: 60rem; ">
+            <div class="row justify-content-center container text-center">
+                <div class="col-md-5">
+                     <h1 style="font-size: 40px">Modifier la photo</h1>
+                    <form method="post">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <input class="btn show-form-delete btn-outline-info my-3" type="submit" value="Enregistrer les modification">
+                    </form>
+                     <a href="{% url 'user_gallerie' %}" class="btn btn-outline-info my-3" >Retour a la page d'accueille </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

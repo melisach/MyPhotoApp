@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}My Photo ! {% endblock %}
+
+ {% block body_content %}
+
+
+
+     <section class="vh-100" >
+         <div class="container py-5 h-100">
+             <div class="row d-flex justify-content-center align-items-center h-100">
+                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem; background-color:#e3f2fd;">
+                      <div class="card-body p-5 text-center">
+                          <h1 style="font-size: 20px ">Vous êtes sur le point de supprimer une photo de la categorie : {{photo.categorie}}</h1>
+                          <div class="row justify-content-around">
+                              <form method="POST" action="{% url 'delete_photo' photo.id %}">
+                                {% csrf_token %}
+                                <button class="btn show-form-delete btn-outline-danger my-3" type="submit" value="DELETE" onclick="return confirm('Êtes-vous sur de vouloir supprimer la photo?  ')">
+                                    <i class="fa fa-trash-o"></i>
+                                    supprimer</button>
+                              </form>
+                             <a href="{% url 'user_gallerie' %}" class="btn btn-outline-info my-3" >Annuler </a>
+                          </div>
+                      </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+ {% endblock %}

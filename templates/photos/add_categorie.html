@@ -1,0 +1,24 @@
+{% extends 'navbar.html' %}
+
+{% block title %}My Photo !{% endblock %}
+
+  {% block body_content_nav %}
+
+        <h2 class="pl-3 " style="color: #00aaaa"><b>Ajouter une categorie</b></h2>
+        <div class="m-5">
+            <div class="container ">
+                <div class="row justify-content-center container text-center">
+                    <div class="col-md-4">
+                        <div class="card p-3" >
+                            <form method="POST" action="." enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-info "> Enregisterer </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ {% endblock %}

@@ -1,0 +1,31 @@
+
+{% extends 'navbar.html' %}
+{% block title %}My Photo !{% endblock %}
+
+ {% block body_content_nav %}
+     <div class="text-right m-3">
+         {% if  photo.user == request.user  %}
+             <a href="{% url 'update_photo' photo.id %}"  class="btn btn-outline-primary">Modifier la photo </a>
+             <a href="{% url 'delete_photo' photo.id %}"  class="btn btn-outline-danger">Supprimer la photo </a>
+         {% elif request.user.is_superuser %}
+             <a href="{% url 'gallerie' %}"  class="btn btn-outline-primary">Modifier la photo </a>
+             <a href="{% url 'gallerie'  %}"  class="btn btn-outline-danger">Supprimer la photo </a>
+         {% endif %}
+     </div>
+        <h2 class="pl-3 " style="color: #00aaaa"><b>Photo de categorie {{ photo.categorie }}</b></h2>
+         <div class="m-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div style="height: 90vh;">
+                            <img src="{{ photo.image.url }}">
+                            <p><b>{{ photo.user }}     </b>{{ photo.description }}</p>
+                            <p>{{ photo.date_creation }}</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+ {% endblock %}
