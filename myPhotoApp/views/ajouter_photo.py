@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class AddPhotoView(LoginRequiredMixin, CreateView):
-    template_name = 'Photos/ajouter_photo.html'
+    template_name = 'photos/ajouter_photo.html'
     form_class = AddFormPhoto
     model = Photo
 

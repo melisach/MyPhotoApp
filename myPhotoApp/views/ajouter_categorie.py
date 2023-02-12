@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class AddCategorieView(LoginRequiredMixin, CreateView):
-    template_name = 'Photos/ajouter_categorie.html'
+    template_name = 'photos/ajouter_categorie.html'
     form_class = AddFormCategorie
     model = Categorie
 
