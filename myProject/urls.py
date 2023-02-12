@@ -18,9 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 from myPhotoApp.views.update_photo import UpdatePhotoView
-from myPhotoApp.views.add_categorie import AddCategorieView
-from myPhotoApp.views.add_photo import AddPhotoView
-from myPhotoApp.views.add_register import RegisterFormView
+from myPhotoApp.views.ajouter_categorie import AddCategorieView
+from myPhotoApp.views.ajouter_photo import AddPhotoView
+from myPhotoApp.views.ajouter_register import RegisterFormView
 from myPhotoApp.views.delete_photo import DeletePhotoView
 from myPhotoApp.views.index import IndexView
 from myPhotoApp.views.photo import PhotoView
@@ -35,8 +35,8 @@ urlpatterns = [
     path('inscription', RegisterFormView.as_view(), name='register_form'),
     path('gallerie/', GallerieView.as_view(), name='gallerie'),
     path('photo/<str:pk>/', PhotoView.as_view(), name='photo'),
-    path('ajouter_photo/', AddPhotoView.as_view(), name='add_photo'),
-    path('ajouter_categorie/', AddCategorieView.as_view(), name='add_categorie'),
+    path('ajouter_photo/', AddPhotoView.as_view(), name='ajouter_photo'),
+    path('ajouter_categorie/', AddCategorieView.as_view(), name='ajouter_categorie'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', UserGallerieView.as_view(), name='user_gallerie'),
     path('<pk>/delete/', DeletePhotoView.as_view(), name='delete_photo'),
